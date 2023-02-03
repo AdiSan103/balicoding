@@ -177,22 +177,93 @@
       }
     }
   </script>
+  <!-- components -->
   <style type="text/tailwindcss">
     @layer components {
+      /* body */
+      body {
+        @apply font-poppins bg-gradient-to-tl dark:from-gray-900 dark:to-slate-900 dark:text-white transition
+      }
+      .button-toggle {
+        @apply text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 outline-none ring-4 ring-gray-200 dark:ring-gray-700 rounded-full text-sm p-2.5 fixed bottom-2 right-2
+      }
       /* banner */
+      .banner {
+        @apply flex flex-col justify-evenly items-center min-h-screen container mx-auto pt-10 px-4
+      }
+      .banner_h1 {
+        @apply font-black lg:text-6xl text-4xl text-gradient
+      }
+      .banner_p {
+        @apply mb-10 mt-2 font-semibold max-w-xl tracking-[2px] lg:text-xl lg:text-xl text-xs
+      }
+      .banner_button {
+        @apply border-2 border-black dark:border-white px-4 py-2 font-bold transition transform hover:scale-110 hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black 
+      }
       /* mobile */
       .mobile_card {
         @apply shadow-xl lg:h-72 lg:w-48 h-40 w-28 bg-white rounded-2xl bg-center bg-no-repeat bg-cover transform transition hover:scale-110
       }
+      .mobile {
+        @apply container mx-auto flex lg:flex-row flex-col justify-center items-center min-h-screen gap-20 px-4
+      }
+      .mobile_content {
+        @apply lg:w-1/2 w-full flex flex-col gap-10
+      }
+      .mobile_h2 {
+        @apply font-black lg:text-6xl md:text-4xl text-2xl text-gradient
+      }
+      .mobile_p {
+        @apply lg:text-xl text-xs
+      }
+      .mobile_content2 {
+        @apply relative lg:w-1/2 w-full flex justify-center items-center lg:min-h-[0px] min-h-screen
+      }
+      .mobile_content2-card {
+        @apply z-10 absolute grid grid-rows-3 grid-flow-col gap-4 origin-top-left rotate-12
+      }
       /* website */
+      .website {
+        @apply container mx-auto flex lg:flex-row flex-col justify-center items-center px-4 min-h-screen gap-20 px-4
+      }
       .website_card {
         @apply w-full h-full bg-cover bg-no-repeat bg-center rounded-xl shadow-xl
       }
+      .website_content1 {
+        @apply lg:w-1/2 w-full relative  flex justify-center items-center
+      }
+      .website_content2 {
+        @apply lg:w-1/2 w-full flex flex-col gap-10
+      }
       /* technology */
+      .tech{
+        @apply container mx-auto flex flex-col justify-evenly items-center min-h-screen px-4
+      }
+      .tech_h2 {
+        @apply font-black lg:text-6xl md:text-4xl text-2xl text-transparent bg-gradient-to-r from-[#033742] bg-[#10D4E0] to-[#B7FFEE] inline-block bg-clip-text
+      }
+      .tech_p {
+        @apply max-w-xl lg:text-xl lg:text-xl text-xs
+      }
       .technology_card {
         @apply lg:w-20 lg:h-20 md:w-16 md:h-16 w-10 h-10
       }
       /* contact */
+      .contact {
+        @apply container mx-auto flex lg:flex-row flex-col lg:justify-evenly justify-center gap-4 items-center min-h-screen px-4
+      }
+      .contact_h2 {
+        @apply font-black lg:text-6xl md:text-4xl text-2xl text-gradient
+      }
+      .contact_p {
+        @apply max-w-xl lg:text-xl lg:text-xl text-xs
+      }
+      .contact_form-container {
+        @apply w-full max-w-[500px] bg-gradient-to-tl dark:from-gray-600 dark:to-gray-900 from-gray-200 to-gray-100 transition hover:shadow-md cursor-pointer shadow-xl dark:shadow-gray-600 mx-auto rounded-2xl animate-gradient1
+      }
+      .contact_form {
+        @apply px-4 py-6 lg:text-xl lg:text-xl text-xs flex flex-col gap-4
+      }
       .contact_input {
         @apply rounded-2xl p-2 focus:outline-blue-400 transition  dark:text-black
       }
@@ -200,11 +271,23 @@
         @apply dark:bg-gray-800 bg-white px-6 py-2 border-2 border-black dark:border-gray-600 shadow rounded-2xl mt-4 transition dark:hover:bg-white hover:bg-black hover:text-white dark:hover:text-black  font-[800] tracking-[2px] hover:tracking-[5px]
       }
       /* footer */
+      .footer {
+        @apply bg-gradient-to-l from-[#08677C] to-[#022843] animate-gradient1
+      }
+      .footer_container {
+        @apply container mx-auto flex flex-col justify-center items-center gap-10 py-10 text-white px-4
+      }
       .footer_menu_title {
         @apply lg:text-xl mb-1 font-bold
       }
       .footer_menu_item {
         @apply lg:text-xl text-xs
+      }
+      .footer_h3 {
+        @apply lg:text-2xl text-xl font-black
+      }
+      .footer_p {
+        @apply max-w-[800px] mt-2 text-xs mx-auto font-[100]
       }
       /* text-gradient */
       .text-gradient {
@@ -239,12 +322,11 @@
 
 </head>
 
-<body class="font-poppins bg-gradient-to-tl dark:from-gray-900 dark:to-slate-900 dark:text-white transition">
+<body class="body">
   <div id="particles-js" class="h-screen w-full fixed opacity-10 -z-[10]"></div>
   <main>
     <!-- button togle dark mode -->
-    <button id="theme-toggle" type="button"
-      class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 outline-none ring-4 ring-gray-200 dark:ring-gray-700 rounded-full text-sm p-2.5 fixed bottom-2 right-2">
+    <button id="theme-toggle" type="button" class="button-toggle">
       <svg id="theme-toggle-dark-icon" class="w-10 h-10 hidden" fill="currentColor" viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -257,21 +339,18 @@
       </svg>
     </button>
     <!-- banner -->
-    <section class="flex flex-col justify-evenly items-center min-h-screen container mx-auto pt-10 px-4">
+    <section class="banner">
       <div class="text-center">
-        <h1 class="font-black lg:text-6xl text-4xl text-gradient" data-aos="fade-up">
+        <h1 class="banner_h1" data-aos="fade-up">
           BALI CODING</h1>
-        <p class="mb-10 mt-2 font-semibold max-w-xl tracking-[2px] lg:text-xl lg:text-xl text-xs" data-aos="fade-up"
-          data-aos-delay="200">Help
+        <p class="banner_p" data-aos="fade-up" data-aos-delay="200">Help
           find
           solutions with intitutive and in
           accordance
           with client
           business goals.
           we provide a high-quality services.</p>
-        <a href="#"
-          class="border-2 border-black dark:border-white px-4 py-2 font-bold transition transform hover:scale-110 hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black "
-          data-aos="fade-up" data-aos-delay="400">CONTACT
+        <a href="#" class="banner_button" data-aos="fade-up" data-aos-delay="400">CONTACT
           US</a>
       </div>
       <div>
@@ -1033,8 +1112,8 @@
       </div>
     </section>
     <!-- mobile -->
-    <section class="container mx-auto flex lg:flex-row flex-col justify-center items-center min-h-screen gap-20 px-4">
-      <div class="lg:w-1/2 w-full flex flex-col gap-10">
+    <section class="mobile">
+      <div class="mobile_content">
         <svg width="100%" class="lg:h-[422px] h-[400px]" viewBox="0 0 324 422" fill="none"
           xmlns="http://www.w3.org/2000/svg" data-aos="fade-up">
           <rect class="animate-appear1" width="193.304" height="300.582" rx="20"
@@ -1184,14 +1263,14 @@
           </defs>
         </svg>
         <div data-aos="fade-up" data-aos-delay="200">
-          <h2 class="font-black lg:text-6xl md:text-4xl text-2xl text-gradient">
+          <h2 class="mobile_h2">
             MOBILE APPLICATION</h2>
-          <p class="lg:text-md lg:text-xl text-xs">Kami melayani pembuatan aplikasi mobile
+          <p class="mobile_p">Kami melayani pembuatan aplikasi mobile
             fullstack developer mobile. Pembuatan aplikasi hybrid, seperti kebutuhan client.</p>
         </div>
       </div>
-      <div class="relative lg:w-1/2 w-full flex justify-center items-center lg:min-h-[0px] min-h-screen">
-        <div class="z-10  absolute grid grid-rows-3 grid-flow-col gap-4 origin-top-left rotate-12">
+      <div class="mobile_content2">
+        <div class="mobile_content2-card">
           <div class="mobile_card row-start-2 row-span-2 -mt-40" style="background-image: url('src/img/1.jpg');"
             data-aos="zoom-in"></div>
           <div class="mobile_card " style="background-image: url('src/img/1.jpg');" data-aos="zoom-in"
@@ -1217,9 +1296,8 @@
       </div>
     </section>
     <!-- website -->
-    <section
-      class="container mx-auto flex lg:flex-row flex-col justify-center items-c px-4enter min-h-screen gap-20 px-4">
-      <div class="lg:w-1/2 w-full relative  flex justify-center items-center">
+    <section class="website">
+      <div class="website_content1">
         <!-- website -->
         <svg class="z-10 lg:h-[373px] h-[200px]" width="100%" viewBox="0 0 704 373" fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -1337,7 +1415,7 @@
           </defs>
         </svg>
       </div>
-      <div class="lg:w-1/2 w-full flex flex-col gap-10">
+      <div class="website_content2">
         <div class="w-full" data-aos="fade-up">
           <h2 class="font-black lg:text-6xl md:text-4xl text-2xl text-gradient">
             WEBSITE DEVELOPMENT</h2>
@@ -1370,12 +1448,11 @@
       </div>
     </section>
     <!-- our technology -->
-    <section class="container mx-auto flex flex-col justify-evenly items-center min-h-screen px-4">
+    <section class="tech">
       <div class="text-center">
-        <h2 data-aos="fade-up"
-          class="font-black lg:text-6xl md:text-4xl text-2xl text-transparent animate-fontGradient1 bg-gradient-to-r from-[#033742] bg-[#10D4E0] to-[#B7FFEE]] inline-block bg-clip-text">
+        <h2 data-aos="fade-up" class="tech_h2">
           BALI CODING</h2>
-        <p data-aos="fade-up" class="max-w-xl lg:text-xl lg:text-xl text-xs">Kami melayani pembuatan aplikasi mobile
+        <p data-aos="fade-up" class="tech_p">Kami melayani pembuatan aplikasi mobile
           fullstack developer mobile. Pembuatan aplikasi hybrid, seperti kebutuhan client.</p>
       </div>
       <div class="relative">
@@ -1823,24 +1900,22 @@
       </div>
     </section>
     <!-- contact us -->
-    <section
-      class="container mx-auto flex lg:flex-row flex-col lg:justify-evenly justify-center gap-4 items-center min-h-screen px-4">
+    <section class="contact">
       <div class="w-full">
-        <h2 data-aos="fade-up" class="font-black lg:text-6xl md:text-4xl text-2xl text-gradient">
+        <h2 data-aos="fade-up" class="contact_h2">
           Any Questions?
           <br>
           Contact Us
         </h2>
-        <p class="max-w-xl lg:text-xl lg:text-xl text-xs" data-aos="fade-up">Kami melayani konsultasi untuk pembuatan
+        <p class="contact_p" data-aos="fade-up">Kami melayani konsultasi untuk pembuatan
           sistem.
           Jangan sungkan hubungi
           kami!</p>
       </div>
       <div class="w-full">
-        <div data-aos="zoom-in"
-          class="w-full max-w-[500px] bg-gradient-to-tl dark:from-gray-600 dark:to-gray-900 from-gray-200 to-gray-100 transition hover:shadow-md cursor-pointer shadow-xl dark:shadow-gray-600 mx-auto rounded-2xl animate-gradient1">
+        <div data-aos="zoom-in" class="contact_form-container">
           <!-- form -->
-          <form action="" class="px-4 py-6 lg:text-xl lg:text-xl text-xs flex flex-col gap-4">
+          <form action="" class="contact_form">
             <div class="flex flex-col">
               <label for="1">Name</label>
               <input type="text" id="1" class="contact_input ">
@@ -1859,12 +1934,12 @@
       </div>
     </section>
   </main>
-  <footer class="bg-gradient-to-l from-[#08677C] to-[#022843] animate-gradient1">
-    <div class="container mx-auto flex flex-col justify-center items-center gap-10 py-10 text-white px-4">
+  <footer class="footer">
+    <div class="footer_container">
       <!-- desc -->
       <div class="w-full text-center">
-        <h3 class="lg:text-2xl text-xl font-black">BALI CODING</h3>
-        <p class="max-w-[800px] lg:text-md mt-2 text-xs mx-auto font-[100]">Lorem ipsum dolor sit amet, consectetur
+        <h3 class="footer_h3">BALI CODING</h3>
+        <p class="footer_p">Lorem ipsum dolor sit amet, consectetur
           adipiscing
           elit.Lorem</p>
       </div>
@@ -1884,6 +1959,7 @@
     </div>
   </footer>
 </body>
+
 <!-- darkmode -->
 <script>
   var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -1927,13 +2003,16 @@
 
   });
 </script>
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 <!-- aos js -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
+
 <!-- Initialize Swiper -->
 <script>
   var swiper = new Swiper(".mySwiper", {
@@ -1969,6 +2048,7 @@
   });
 
 </script>
+
 <!-- particle js -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" charset="utf-8"></script>
 <script type="text/javascript">
